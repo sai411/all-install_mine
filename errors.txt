@@ -1,0 +1,1 @@
+for webhook error  ----> use this kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
