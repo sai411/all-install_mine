@@ -5,3 +5,22 @@ sudo apt-get update
 sudo apt-get install grafana
 sudo systemctl start grafana-server
 sudo systemctl enable grafana-server
+
+To link cloudwatch with grafana, follow these steps
+
+1. create a grafana datasource , select cloudwatch 
+2. create a user with no permissions and create a role with required policies like ec2,cloudwatch.
+3. In that role trust policy add a assumerole for user 
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::803152773502:user/Grafana"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+4. provide access key and secret key in the datasoucrce fields and click on sane and test connection.
