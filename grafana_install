@@ -5,6 +5,7 @@ sudo apt-get update
 sudo apt-get install grafana
 sudo systemctl start grafana-server
 sudo systemctl enable grafana-server
+default port is 3000
 
 To link cloudwatch with grafana, follow these steps
 
