@@ -1,0 +1,29 @@
+To create SSL certificates, you can use the OpenSSL command-line tool, which is commonly available on Unix-like operating systems such as Linux and macOS. Here's a basic example of how to generate a self-signed SSL certificate:
+
+Generate a Private Key:
+
+openssl genrsa -out server.key 2048
+This command will generate a private key (server.key) with a length of 2048 bits.
+
+
+Create a Certificate Signing Request (CSR):
+
+
+openssl req -new -key server.key -out server.csr
+
+Generate a Self-Signed Certificate:
+
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+This command will generate a self-signed certificate (server.crt) valid for 365 days using the private key (server.key) and the CSR (server.csr)
+
+
+for 3rd party crt:
+provide csr to the provider, It will give certficats (certificate bundle and certificate.crt) 
+
+combine these two
+cat server.key(pvt key) certificate.crt >> final_certificate.crt
+
+kubectl create secret tls my-tls-secret --key server.key --cert cert.crt
+
+Add it in ingress.
+under tls section.
