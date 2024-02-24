@@ -17,3 +17,19 @@ sudo apt-get install jenkins
 sudo systemctl start jenkins.service
 
 sudo systemctl status jenkins
+
+
+change jenkins homepath or any env varibles
+
+suod -i
+sudo service jenkins stop
+mkdir /home/new_home
+sudo chown jenkins:jenkins /home/new_home/
+sudo cp -prv /var/lib/jenkins /home/new_home/
+sudo usermod -d /home/new_home/ jenkins
+sudo vi /etc/default/jenkins
+comment that variable (JENKINS_HOME) in /lib/systemd/system/jenkins.service or check this by using service jenkins status
+copy old jenkins to .jenkins in new directory
+and provide jenkins user ownership
+systemctl daemon-reload
+restart the jenkins service jenkins restart 
