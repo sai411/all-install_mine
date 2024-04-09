@@ -1,3 +1,6 @@
+Lagecy installations using package managers have been deprecated use this steps without package manager from here 
+https://v1-28.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+-----
 apt-get update
 apt-get install -y docker.io
 apt-get update 
