@@ -26,3 +26,4 @@ kubeadm init --pod-network-cidr=10.0.0.0/16
 #You should now deploy a pod network to the cluster.
 #Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 #  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+calico : kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.3/manifests/tigera-operator.yaml (it will reconfigure ip automatically used as pod-cidr)
